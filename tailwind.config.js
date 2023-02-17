@@ -15,10 +15,13 @@ module.exports = {
         tertiary: '#55D8F9',
       },
       fontFamily: {
-        nunitoSans: 'var(--font-nunitoSans)',
-        cutmark: 'var(--font-cutmark)'
+        nunitoSans: "var(--font-nunitoSans)",
+        cutmark: "var(--font-cutmark)",
+      },
+      colors: {
+        primaryBg: "#1D1B26",
       },
     },
   },
   plugins: [],
-}
+};
