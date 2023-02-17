@@ -1,3 +1,5 @@
+import Intro from '@/components/landing/Intro';
+import PublicLayout from '@/layouts/PublicLayout';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -12,7 +14,9 @@ export default function Home() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<h1 className='font-cutmark text-7xl'>Hello there!</h1>
+			<PublicLayout>
+				<Intro />
+			</PublicLayout>
 		</>
 	);
 }
