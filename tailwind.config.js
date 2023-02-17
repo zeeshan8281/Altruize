@@ -18,9 +18,6 @@ module.exports = {
         nunitoSans: "var(--font-nunitoSans)",
         cutmark: "var(--font-cutmark)",
       },
-      colors: {
-        primaryBg: "#1D1B26",
-      },
     },
   },
   plugins: [],
