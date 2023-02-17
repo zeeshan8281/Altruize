@@ -32,6 +32,8 @@ const Intro = () => {
 						height={100}
 						className='h-auto w-full object-contain'
 						quality={100}
+						priority
+						unoptimized={true}
 					/>
 				</div>
 			</div>
