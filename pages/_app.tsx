@@ -58,7 +58,9 @@ const cutmark = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
+		<main
+			className={`${nunitoSans.variable} ${cutmark.variable} font-nunitoSans`}
+		>
 			<Component {...pageProps} />
 		</main>
 	);
