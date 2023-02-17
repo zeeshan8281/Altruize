@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+	@apply rounded-full border border-white px-10 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-95 hover:border-tertiary hover:bg-tertiary active:scale-105;
+}
