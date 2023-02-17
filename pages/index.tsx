@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import DonateTo from "./ngo/DonateTo";
+import Donate from "./ngo/donate";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="font-cutmark text-7xl bg-primaryBg h-screen ">
-        <DonateTo/>
+        <Donate />
       </h1>
     </>
   );
