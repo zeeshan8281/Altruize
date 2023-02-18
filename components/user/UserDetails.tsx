@@ -91,9 +91,6 @@ export default function UserDetails() {
 				<h1 className='font-cutmark text-5xl font-bold uppercase text-white md:text-7xl'>
 					User Details
 				</h1>
-				<div className='my-2'>
-					<ConnectButton />
-				</div>
 			</div>
 			<section className='flex flex-col items-center justify-center pt-[3%] md:justify-between lg:flex-row'>
 				<div className='pl-[2%] lg:w-[60%]'>
