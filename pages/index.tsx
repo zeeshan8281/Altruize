@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Image from 'next/image';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
 	return (
@@ -12,7 +12,10 @@ export default function Home() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<h1 className='font-cutmark text-7xl'>Hello there!</h1>
+			<main>
+				<h1 className='font-cutmark text-7xl'>Hello there!</h1>
+				<ConnectButton/>
+			</main>
 		</>
 	);
 }

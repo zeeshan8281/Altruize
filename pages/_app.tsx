@@ -3,6 +3,32 @@ import type { AppProps } from 'next/app';
 import { Nunito_Sans } from '@next/font/google';
 import localFont from '@next/font/local';
 
+// Rainbow Kit 
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+	getDefaultWallets,
+	RainbowKitProvider,
+  } from '@rainbow-me/rainbowkit';
+import { configureChains, createClient, WagmiConfig } from 'wagmi';
+import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
+
+const { chains, provider } = configureChains(
+	[mainnet, polygon, optimism, arbitrum],
+	[publicProvider()]
+);
+
+const { connectors } = getDefaultWallets({
+	appName: "Care For Them",
+	chains,
+}); 
+
+const wagmiClient = createClient({
+	autoConnect: true,
+	connectors,
+	provider
+})
+
 const nunitoSans = Nunito_Sans({
 	subsets: ['latin'],
 	weight: ['200', '300', '400', '600', '700', '800', '900'],
@@ -58,8 +84,12 @@ const cutmark = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
-			<Component {...pageProps} />
-		</main>
+		<WagmiConfig client={wagmiClient}>
+			<RainbowKitProvider chains={chains}>
+				<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
+					<Component {...pageProps} />
+				</main>
+			</RainbowKitProvider>
+		</WagmiConfig>
 	);
 }
