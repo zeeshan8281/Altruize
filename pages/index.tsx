@@ -1,11 +1,12 @@
 import Head from 'next/head';
+// RainbowKit
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Care For Them</title>
+				<title>Altruize</title>
 				<meta
 					name='viewport'
 					content='width=device-width, initial-scale=1'

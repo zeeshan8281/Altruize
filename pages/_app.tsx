@@ -9,11 +9,12 @@ import {
 	getDefaultWallets,
 	RainbowKitProvider,
   } from '@rainbow-me/rainbowkit';
+import { SessionProvider } from "next-auth/react";
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
-const { chains, provider } = configureChains(
+const { chains, webSocketProvider, provider } = configureChains(
 	[mainnet, polygon, optimism, arbitrum],
 	[publicProvider()]
 );
@@ -25,6 +26,7 @@ const { connectors } = getDefaultWallets({
 
 const wagmiClient = createClient({
 	autoConnect: true,
+	webSocketProvider,
 	connectors,
 	provider
 })
@@ -85,11 +87,13 @@ const cutmark = localFont({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<WagmiConfig client={wagmiClient}>
-			<RainbowKitProvider chains={chains}>
-				<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
-					<Component {...pageProps} />
-				</main>
-			</RainbowKitProvider>
+			<SessionProvider session={pageProps.session} refetchInterval={0}>
+				<RainbowKitProvider chains={chains}>
+					<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
+						<Component {...pageProps} />
+					</main>
+				</RainbowKitProvider>
+			</SessionProvider>
 		</WagmiConfig>
 	);
 }
