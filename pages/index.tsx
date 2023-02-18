@@ -1,5 +1,8 @@
 import About from '@/components/landing/About';
+import FAQ from '@/components/landing/FAQ';
 import Intro from '@/components/landing/Intro';
+import NgoFeatures from '@/components/landing/NgoFeatures';
+import UserFeatures from '@/components/landing/UserFeatures';
 import PublicLayout from '@/layouts/PublicLayout';
 import Head from 'next/head';
 // RainbowKit
@@ -17,6 +20,9 @@ export default function Home() {
 				<ConnectButton/>
 				<Intro />
 				<About />
+				<NgoFeatures />
+				<UserFeatures />
+				<FAQ />
 			</PublicLayout>
 		</>
 	);
