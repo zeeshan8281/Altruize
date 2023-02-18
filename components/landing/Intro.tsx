@@ -24,7 +24,7 @@ const Intro = () => {
 				</div>
 			</div>
 			<div className='flex w-full items-center justify-center'>
-				<div className='w-full max-w-[300px] overflow-hidden drop-shadow-[0_40px_70px_rgba(67,38,243,0.8)] md:max-w-xl'>
+				<div className='w-full max-w-[300px] animate-float overflow-hidden drop-shadow-[0_40px_70px_rgba(67,38,243,0.8)] md:max-w-xl'>
 					<Image
 						src={LandingImage.src}
 						alt='Care for them'
