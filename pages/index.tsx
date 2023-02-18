@@ -1,15 +1,11 @@
 import About from '@/components/landing/About';
 import Intro from '@/components/landing/Intro';
-import User from '@/components/Profile';
 import PublicLayout from '@/layouts/PublicLayout';
 import Head from 'next/head';
 // RainbowKit
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import useIsMounted from '@/hooks/useIsMounted';
-
 
 export default function Home() {
-	const mounted = useIsMounted();
 	return (
 		<>
 			<Head>
@@ -19,7 +15,6 @@ export default function Home() {
 			</Head>
 			<PublicLayout>
 				<ConnectButton/>
-				{mounted ? <User/> : null}
 				<Intro />
 				<About />
 			</PublicLayout>

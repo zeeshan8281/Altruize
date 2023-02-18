@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.20.12",
+    "@dicebear/collection": "^5.3.4",
+    "@dicebear/core": "^5.3.4",
     "@next/font": "13.1.6",
     "@rainbow-me/rainbowkit": "^0.11.0",
     "@types/node": "18.11.18",
