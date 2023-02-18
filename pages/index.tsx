@@ -1,5 +1,7 @@
 import About from '@/components/landing/About';
 import Intro from '@/components/landing/Intro';
+import NgoFeatures from '@/components/landing/NgoFeatures';
+import UserFeatures from '@/components/landing/UserFeatures';
 import PublicLayout from '@/layouts/PublicLayout';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -18,6 +20,8 @@ export default function Home() {
 			<PublicLayout>
 				<Intro />
 				<About />
+				<NgoFeatures />
+				<UserFeatures />
 			</PublicLayout>
 		</>
 	);
