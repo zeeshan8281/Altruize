@@ -4,7 +4,7 @@ import LandingImage from '@/public/assets/landing-img.png';
 
 const Intro = () => {
 	return (
-		<section className='container mx-auto grid min-h-screen w-full grid-cols-1 gap-10 p-5 text-white md:grid-cols-2'>
+		<section className='container mx-auto grid min-h-[95vh] w-full grid-cols-1 gap-10 p-5 text-white md:grid-cols-2'>
 			<div className='flex w-full flex-col justify-center gap-4'>
 				<h1 className='font-cutmark text-5xl font-bold uppercase md:text-7xl'>
 					Join the future of giving

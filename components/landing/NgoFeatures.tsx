@@ -26,7 +26,10 @@ const NgoFeatures = () => {
 	];
 
 	return (
-		<section className='container mx-auto mt-20 flex w-full grid-cols-1 flex-col items-center p-5 text-white'>
+		<section
+			id='features'
+			className='container mx-auto mt-20 flex w-full grid-cols-1 flex-col items-center p-5 text-white'
+		>
 			<p className='text-center font-cutmark text-lg text-tertiary md:text-2xl'>
 				NGO Features
 			</p>
