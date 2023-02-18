@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export default function Donate() {
 	return (
-		<>
+		<section className='bg-primary'>
 			<section className='text-gray-400 bg-primaryBg body-font'>
 				<div className='container px-5 py-24 mx-auto flex flex-col'>
 					<div className='lg:w-4/6 mx-auto'>
 						<div className=' justify-center mx-auto mb-10 items-center flex'>
-							<h1 className='sm:text-5xl text-5xl font-medium title-font text-white lg:w-1/3 lg:mb-0  justify-center text-center'>
+							<h1 className='sm:text-5xl text-5xl font-medium title-font text-white lg:w-1/3 lg:mb-0  justify-center text-center font-cutmark'>
 								NGO Name
 							</h1>
 						</div>
@@ -169,6 +169,6 @@ export default function Donate() {
 					</div>
 				</div>
 			</section>
-		</>
+		</section>
 	);
 }
