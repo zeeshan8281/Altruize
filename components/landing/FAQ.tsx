@@ -71,7 +71,10 @@ const FAQ = () => {
 	};
 
 	return (
-		<section className='md:gird-cols-2 container mx-auto mt-20 max-h-fit w-full p-5 text-white md:grid-cols-2'>
+		<section
+			id='faqs'
+			className='md:gird-cols-2 container mx-auto mt-20 max-h-fit w-full p-5 text-white md:grid-cols-2'
+		>
 			<p className='text-center font-cutmark text-lg text-tertiary md:text-2xl'>
 				FAQs
 			</p>

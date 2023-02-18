@@ -18,7 +18,10 @@ const About = () => {
 	];
 
 	return (
-		<section className='md:gird-cols-2 container mx-auto grid w-full grid-cols-1 gap-10 p-5 text-white md:grid-cols-2'>
+		<section
+			id='about'
+			className='md:gird-cols-2 container mx-auto grid w-full grid-cols-1 gap-10 p-5 text-white md:grid-cols-2'
+		>
 			<div className='flex h-full w-full items-center justify-center'>
 				<div className='max-h-96 w-full max-w-xl overflow-hidden rounded-[40px]'>
 					<Image
