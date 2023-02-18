@@ -20,7 +20,7 @@ const { chains, webSocketProvider, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-	appName: "Care For Them",
+	appName: "Altruize",
 	chains,
 }); 
 

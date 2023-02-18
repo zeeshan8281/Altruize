@@ -1,3 +1,6 @@
+import About from '@/components/landing/About';
+import Intro from '@/components/landing/Intro';
+import PublicLayout from '@/layouts/PublicLayout';
 import Head from 'next/head';
 // RainbowKit
 import { ConnectButton } from '@rainbow-me/rainbowkit';
@@ -13,10 +16,11 @@ export default function Home() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main>
-				<h1 className='font-cutmark text-7xl'>Hello there!</h1>
+			<PublicLayout>
 				<ConnectButton/>
-			</main>
+				<Intro />
+				<About />
+			</PublicLayout>
 		</>
 	);
 }
