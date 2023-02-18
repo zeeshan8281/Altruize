@@ -44,7 +44,7 @@ export default function UserDetails() {
       setEmail(data!.email);
     }
     fetchData();
-  }, [])
+  }, [address])
 
   // Name and Email Sates
   const [name, setName] = useState("");
