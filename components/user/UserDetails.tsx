@@ -7,7 +7,7 @@ import { useAccount, useBalance } from 'wagmi';
 import { createAvatar } from '@dicebear/core';
 import { thumbs } from '@dicebear/collection';
 // Firebase
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 // Hydration Error Hook
 import useIsMounted from '@/hooks/useIsMounted';
@@ -51,6 +51,8 @@ export default function UserDetails() {
 		fetchData();
 	}, [address, dispatch]);
 
+	console.log(user);
+
 	// Name and Email Sates
 	const [nameEdit, setNameEdit] = useState(false);
 	const [emailEdit, setEmailEdit] = useState(false);
@@ -70,7 +72,7 @@ export default function UserDetails() {
 	const handleNameSave = async () => {
 		setNameEdit(false);
 		const walletaddress = address!.toString();
-		await setDoc(doc(db, 'users', walletaddress), {
+		await updateDoc(doc(db, 'users', walletaddress), {
 			name: user?.name,
 		});
 	};
@@ -82,7 +84,7 @@ export default function UserDetails() {
 	const handleEmailSave = async () => {
 		setEmailEdit(false);
 		const walletaddress = address!.toString();
-		await setDoc(doc(db, 'users', walletaddress), {
+		await updateDoc(doc(db, 'users', walletaddress), {
 			email: user?.email,
 		});
 	};

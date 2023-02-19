@@ -14,12 +14,7 @@ export const userSlice = createSlice({
 	initialState,
 	reducers: {
 		updateUserDetails: (state, action: PayloadAction<Partial<User>>) => {
-			const data = Object.entries(action.payload);
-			data.forEach((entry) => {
-				const [key, value] = entry;
-				// @ts-ignore
-				state.user = { [key]: value ?? '' };
-			});
+			state.user = { ...action.payload };
 		},
 	},
 	extraReducers: {
