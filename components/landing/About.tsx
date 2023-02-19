@@ -51,7 +51,7 @@ const About = () => {
 					{features.map((feature, index) => (
 						<li
 							key={index}
-							className='text-cutmark cursor-pointer whitespace-nowrap rounded-full bg-slate-400 px-4 py-2 text-[8px] shadow-sm shadow-secondary transition-all duration-300 hover:scale-105 hover:shadow-md md:text-xs'
+							className='text-cutmark cursor-pointer whitespace-nowrap rounded-full bg-gray-700 px-4 py-2 text-[10px] shadow-sm shadow-secondary transition-all duration-300 hover:scale-105 hover:shadow-md md:text-xs'
 						>
 							{feature}
 						</li>
