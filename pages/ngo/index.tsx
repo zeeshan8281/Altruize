@@ -165,6 +165,5 @@ const NgoPage = () => {
 			</div>
 		</PublicLayout>
 	);
-};
 
 export default NgoPage;

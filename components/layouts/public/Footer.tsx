@@ -89,7 +89,8 @@ const Footer = () => {
 						</a>
 					</div>
 					<p className='text-sm'>
-						&copy; 2023 Altruize. All rights reserved.
+						<p>Copyright &copy; 2023 Altruize</p> 
+						<p>All rights reserved.</p>
 					</p>
 				</div>
 				<div className='my-[2%] flex-grow'>

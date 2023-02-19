@@ -1,1 +1,4 @@
-interface User {}
+interface User {
+	name?: string;
+	email?: string;
+}

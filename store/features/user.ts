@@ -1,14 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-const initialState = {
+interface UserState {
+	user: User | null;
+}
+
+const initialState: UserState = {
 	user: null,
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		updateUserDetails: (state, action: PayloadAction<Partial<User>>) => {
+			state.user = { ...state?.user, ...action.payload };
+		},
+	},
 	extraReducers: {
 		[HYDRATE]: (state, action) => {
 			return {
@@ -19,6 +27,6 @@ export const userSlice = createSlice({
 	},
 });
 
-export const {} = userSlice.actions;
+export const { updateUserDetails } = userSlice.actions;
 
 export default userSlice.reducer;
