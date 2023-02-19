@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 // RainbowKit
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+// import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useBalance } from 'wagmi';
 // DiceBear
 import { createAvatar } from '@dicebear/core';
@@ -11,9 +11,14 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 // Hydration Error Hook
 import useIsMounted from '@/hooks/useIsMounted';
+import useAppDispatch from '@/hooks/useAppDispatch';
+import useAppSelector from '@/hooks/useAppSelector';
+import { updateUserDetails } from '@/store/features/user';
 
 export default function UserDetails() {
 	const mounted = useIsMounted();
+	const dispatch = useAppDispatch();
+	const { user } = useAppSelector((state) => state.user);
 
 	// Random Avatar
 	const [dataUri, setDataUri] = useState('');
@@ -39,24 +44,23 @@ export default function UserDetails() {
 			const docRef = doc(db, 'users', walletaddress);
 			const docSnap = await getDoc(docRef);
 			const data = docSnap.data();
-			setName(data?.name);
-			setEmail(data?.email);
+			dispatch(
+				updateUserDetails({ email: data?.email, name: data?.name })
+			);
 		};
 		fetchData();
-	}, [address]);
+	}, [address, dispatch]);
 
 	// Name and Email Sates
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
 	const [nameEdit, setNameEdit] = useState(false);
 	const [emailEdit, setEmailEdit] = useState(false);
 
 	const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setName(e.target.value);
+		dispatch(updateUserDetails({ name: e.target.value }));
 	};
 
 	const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setEmail(e.target.value);
+		dispatch(updateUserDetails({ email: e.target.value }));
 	};
 
 	const handleNameEdit = () => {
@@ -67,8 +71,7 @@ export default function UserDetails() {
 		setNameEdit(false);
 		const walletaddress = address!.toString();
 		await setDoc(doc(db, 'users', walletaddress), {
-			name: name,
-			email: email,
+			name: user?.name,
 		});
 	};
 
@@ -80,8 +83,7 @@ export default function UserDetails() {
 		setEmailEdit(false);
 		const walletaddress = address!.toString();
 		await setDoc(doc(db, 'users', walletaddress), {
-			name: name,
-			email: email,
+			email: user?.email,
 		});
 	};
 
@@ -100,8 +102,10 @@ export default function UserDetails() {
 						</label>
 						<input
 							className='w-[40%] rounded-lg px-[2%]'
-							placeholder={address ? name : 'Enter your name.'}
-							value={name ?? null}
+							placeholder={
+								address ? user?.name : 'Enter your name.'
+							}
+							value={user?.name}
 							onChange={address ? handleNameChange : undefined}
 							disabled={!nameEdit}
 						/>
@@ -154,9 +158,11 @@ export default function UserDetails() {
 						<input
 							className='w-[40%] rounded-lg px-[2%]'
 							placeholder={
-								address ? email : 'Enter your email address.'
+								address
+									? user?.email
+									: 'Enter your email address.'
 							}
-							value={email ?? null}
+							value={user?.email}
 							disabled={!emailEdit}
 							onChange={address ? handleEmailChange : undefined}
 						/>
