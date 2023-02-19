@@ -75,10 +75,10 @@ const FAQ = () => {
 			id='faqs'
 			className='md:gird-cols-2 container mx-auto mt-20 max-h-fit w-full p-5 text-white md:grid-cols-2'
 		>
-			<p className='text-center font-cutmark text-lg text-tertiary md:text-2xl'>
+			<p className='w-full text-left font-cutmark text-lg text-tertiary md:text-center md:text-2xl'>
 				FAQs
 			</p>
-			<h2 className='text-center font-cutmark text-5xl md:text-7xl'>
+			<h2 className='w-full text-left font-cutmark text-5xl md:text-center md:text-7xl'>
 				Frequently Asked Questions
 			</h2>
 			<div className='mx-auto mt-8 flex w-fit flex-wrap justify-center gap-6'>
