@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const NgoPage = () => {
-	return <div>NgoPage</div>;
+  return (
+    <div>NGO Page</div>
+  );
 };
 
 export default NgoPage;
