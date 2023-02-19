@@ -181,13 +181,5 @@ const NgoPage = () => {
 export default NgoPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	const { username } = context.query;
-	const ngosRef = collection(db, 'ngos');
-	const ngos = await getDocs(
-		query(ngosRef, where('username', '==', username))
-	);
-
-	return {
-		props: {},
-	};
+	//
 };
