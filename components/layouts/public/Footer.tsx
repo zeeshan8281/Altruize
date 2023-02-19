@@ -70,7 +70,7 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className='min-h-[20vh] bg-primary text-white'>
+		<footer className='mt-auto min-h-[20vh] bg-primary text-white'>
 			<div className='container mx-auto flex flex-col flex-wrap py-4 px-5 sm:flex-row'>
 				<div className='my-[2%] flex-grow'>
 					<div className='mb-4 flex items-center'>
@@ -89,7 +89,7 @@ const Footer = () => {
 						</a>
 					</div>
 					<p className='text-sm'>
-						<p>Copyright &copy; 2023 Altruize</p> 
+						<p>Copyright &copy; 2023 Altruize</p>
 						<p>All rights reserved.</p>
 					</p>
 				</div>

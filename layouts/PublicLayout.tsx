@@ -10,7 +10,7 @@ const PublicLayout: NextPage<PropsWithChildren> = ({ children }) => {
 			<Headroom className='bg-primary'>
 				<Navbar />
 			</Headroom>
-			<main className='w-full bg-primary'>{children}</main>
+			<main className='w-full flex-1 bg-primary'>{children}</main>
 			<Footer />
 		</>
 	);

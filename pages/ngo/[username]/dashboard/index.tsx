@@ -3,6 +3,13 @@ import { type } from 'os';
 import React from 'react';
 import { AiFillDollarCircle, AiOutlinePlus } from 'react-icons/ai';
 import { IconType } from 'react-icons/lib';
+import {
+	GetServerSideProps,
+	InferGetServerSidePropsType,
+	NextPage,
+} from 'next';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '@/firebase.config';
 
 export interface DashBoardTypes {
 	title: string;
@@ -10,7 +17,9 @@ export interface DashBoardTypes {
 	Icon: IconType;
 }
 
-const NgoDashboard = () => {
+const NgoDashboard: NextPage<
+	InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ ngo }) => {
 	const dashboardDetails: DashBoardTypes[] = [
 		{
 			title: 'Total Donations Received',
@@ -61,7 +70,7 @@ const NgoDashboard = () => {
 			<section className='container mx-auto min-h-screen bg-primary pt-[5%]'>
 				<div className='border-b px-[2%] pb-[2%]'>
 					<h1 className='text-left font-cutmark text-5xl font-bold uppercase text-white md:text-center md:text-7xl'>
-						NGO Dashboard
+						{ngo.name}
 					</h1>
 				</div>
 				{/* dashboard section  */}
@@ -164,3 +173,36 @@ const NgoDashboard = () => {
 };
 
 export default NgoDashboard;
+
+export const getServerSideProps: GetServerSideProps<{ ngo: Ngo }> = async (
+	context
+) => {
+	const { username } = context.query;
+	const ngosRef = collection(db, 'ngos');
+	const ngos = await getDocs(
+		query(ngosRef, where('username', '==', username))
+	);
+	let ngo = {} as Ngo;
+
+	if (ngos.empty) {
+		return {
+			redirect: {
+				destination: '/ngo',
+				permanent: true,
+			},
+		};
+	}
+
+	ngos.forEach((ngoDoc) => {
+		const data = ngoDoc.data() as Ngo;
+		if (data.username === username) {
+			ngo = data;
+		}
+	});
+
+	return {
+		props: {
+			ngo: JSON.parse(JSON.stringify(ngo)),
+		},
+	};
+};

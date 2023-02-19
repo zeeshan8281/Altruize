@@ -7,13 +7,14 @@ import { useAccount, useBalance } from 'wagmi';
 import { createAvatar } from '@dicebear/core';
 import { thumbs } from '@dicebear/collection';
 // Firebase
-import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 // Hydration Error Hook
 import useIsMounted from '@/hooks/useIsMounted';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import { updateUserDetails } from '@/store/features/user';
+import Link from 'next/link';
 
 export default function UserDetails() {
 	const mounted = useIsMounted();
@@ -231,6 +232,20 @@ export default function UserDetails() {
 							</p>
 						</>
 					) : null}
+					<Link
+						href='/ngo/famous-ngo/dashboard'
+						className='group relative mt-4 inline-block font-cutmark text-lg'
+					>
+						<span className='relative z-10 block overflow-hidden rounded-lg border-2 border-gray-900 px-5 py-3 font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out group-hover:text-white'>
+							<span className='absolute inset-0 h-full w-full rounded-lg bg-gray-50 px-5 py-3'></span>
+							<span className='ease absolute left-0 -ml-2 h-48 w-48 origin-top-right -translate-x-full translate-y-12 -rotate-90 bg-blue-500 transition-all duration-300 group-hover:-rotate-180'></span>
+							<span className='relative'>Ngo Dashboard</span>
+						</span>
+						<span
+							className='absolute bottom-0 right-0 -mb-1 -mr-1 h-12 w-full rounded-lg bg-blue-500 transition-all duration-200 ease-linear group-hover:mb-0 group-hover:mr-0'
+							data-rounded='rounded-lg'
+						></span>
+					</Link>
 				</div>
 				<div className='mr-[2%] mt-8 flex justify-center lg:w-[30%] 2xl:w-[40%]'>
 					<div className='h-full w-full max-w-xs overflow-hidden rounded-full drop-shadow-[0_40px_70px_rgba(67,38,243,0.8)]'>
