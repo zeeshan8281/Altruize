@@ -1,6 +1,71 @@
 import React from "react";
 
 const NgoPage = () => {
+  const ngoDetails = [
+    {
+      id: 1,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 2,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 3,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 4,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 5,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 6,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+    {
+      id: 7,
+      ngoLogo:
+        "https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg",
+      ngoName: "Agile Paws",
+      ngoEmail: "ngo@email.com",
+      ngoDonation: "$1,000",
+      ngoDonatePageUrl: "",
+    },
+  ];
   return (
     <div className="mx-auto  min-h-screen bg-primary pt-[5%]">
       <div className="flex flex-col items-center justify-between border-b px-[2%] pb-[2%] md:flex-row">
@@ -8,177 +73,74 @@ const NgoPage = () => {
           NGO LeaderBoard
         </h1>
       </div>
-      <section className="flex  flex-col justify-center  p-4 text-gray-600 antialiased">
+      <section className="flex  flex-col justify-center  p-4 pt-10 text-gray-600 antialiased drop-shadow-[0_40px_70px_rgba(67,38,243,0.8)]">
         <div className="h-full">
-          <div className="mx-auto w-full max-w-2xl rounded-sm border border-gray-200 bg-white shadow-lg">
-            <header className="border-b border-gray-100 px-5 py-4">
-              <h2 className="font-semibold text-gray-800">Customers</h2>
-            </header>
+          <div className="mx-auto w-full max-w-4xl  rounded-lg border border-black bg-steelGray shadow-xl">
             <div className="p-3">
               <div className="overflow-x-auto">
-                <table className="w-full table-auto">
-                  <thead className="bg-gray-50 text-xs font-semibold uppercase text-gray-400">
+                <table className="w-full table-auto ">
+                  <thead className="text-md bg-steelGray font-semibold uppercase text-white">
                     <tr>
                       <th className="whitespace-nowrap p-2">
-                        <div className="text-left font-semibold">Name</div>
+                        <div className="text-center font-semibold">Name</div>
                       </th>
                       <th className="whitespace-nowrap p-2">
-                        <div className="text-left font-semibold">Email</div>
+                        <div className="text-center font-semibold">Email</div>
                       </th>
                       <th className="whitespace-nowrap p-2">
-                        <div className="text-left font-semibold">Spent</div>
+                        <div className="text-center font-semibold">
+                          Donations Received{" "}
+                        </div>
                       </th>
                       <th className="whitespace-nowrap p-2">
-                        <div className="text-center font-semibold">Country</div>
+                        <div className="text-center font-semibold">Donate</div>
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100 text-sm">
-                    <tr>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="flex items-center">
-                          <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
-                            <img
-                              className="rounded-full"
-                              src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
-                              width="40"
-                              height="40"
-                              alt="Alex Shatov"
-                            />
+                    {ngoDetails.map((ngo) => (
+                      <tr key={ngo.id}>
+                        <td className="whitespace-nowrap p-2">
+                          <div className="flex items-center">
+                            <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
+                              <img
+                                className="rounded-full"
+                                src={ngo.ngoLogo}
+                                width="40"
+                                height="40"
+                                alt={ngo.ngoName}
+                              />
+                            </div>
+                            <div className="font-medium text-white">
+                              {ngo.ngoName}
+                            </div>
                           </div>
-                          <div className="font-medium text-gray-800">
-                            Alex Shatov
+                        </td>
+                        <td className="whitespace-nowrap p-2">
+                          <div className="text-center text-white">
+                            {ngo.ngoEmail}
                           </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left">alexshatov@gmail.com</div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left font-medium text-green-500">
-                          $2,890.66
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-center text-lg">🇺🇸</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="flex items-center">
-                          <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
-                            <img
-                              className="rounded-full"
-                              src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg"
-                              width="40"
-                              height="40"
-                              alt="Philip Harbach"
-                            />
+                        </td>
+                        <td className="whitespace-nowrap p-2 text-center">
+                          <div className=" text-center font-medium text-green-500">
+                            {ngo.ngoDonation}
                           </div>
-                          <div className="font-medium text-gray-800">
-                            Philip Harbach
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left">philip.h@gmail.com</div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left font-medium text-green-500">
-                          $2,767.04
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-center text-lg">🇩🇪</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="flex items-center">
-                          <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
-                            <img
-                              className="rounded-full"
-                              src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg"
-                              width="40"
-                              height="40"
-                              alt="Mirko Fisuk"
-                            />
-                          </div>
-                          <div className="font-medium text-gray-800">
-                            Mirko Fisuk
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left">mirkofisuk@gmail.com</div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left font-medium text-green-500">
-                          $2,996.00
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-center text-lg">🇫🇷</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="flex items-center">
-                          <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
-                            <img
-                              className="rounded-full"
-                              src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-08.jpg"
-                              width="40"
-                              height="40"
-                              alt="Olga Semklo"
-                            />
-                          </div>
-                          <div className="font-medium text-gray-800">
-                            Olga Semklo
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left">olga.s@cool.design</div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left font-medium text-green-500">
-                          $1,220.66
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-center text-lg">🇮🇹</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="flex items-center">
-                          <div className="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3">
-                            <img
-                              className="rounded-full"
-                              src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-09.jpg"
-                              width="40"
-                              height="40"
-                              alt="Burak Long"
-                            />
-                          </div>
-                          <div className="font-medium text-gray-800">
-                            Burak Long
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left">longburak@gmail.com</div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-left font-medium text-green-500">
-                          $1,890.66
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap p-2">
-                        <div className="text-center text-lg">🇬🇧</div>
-                      </td>
-                    </tr>
+                        </td>
+                        <td className="whitespace-nowrap p-2 items-center">
+                          <button className="group relative inline-block text-lg">
+                            <span className="relative z-10 block overflow-hidden rounded-lg border-2 border-gray-900 px-5 py-3 font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out group-hover:text-white">
+                              <span className="absolute inset-0 h-full w-full rounded-lg bg-gray-50 px-5 py-3"></span>
+                              <span className="ease absolute left-0 -ml-2 h-48 w-48 origin-top-right -translate-x-full translate-y-12 -rotate-90 bg-blue-500 transition-all duration-300 group-hover:-rotate-180"></span>
+                              <span className="relative">Visit Page</span>
+                            </span>
+                            <span
+                              className="absolute bottom-0 right-0 -mb-1 -mr-1 h-12 w-full rounded-lg bg-blue-500 transition-all duration-200 ease-linear group-hover:mb-0 group-hover:mr-0"
+                              data-rounded="rounded-lg"
+                            ></span>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
