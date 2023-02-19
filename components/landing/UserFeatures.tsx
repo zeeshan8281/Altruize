@@ -28,10 +28,10 @@ const UserFeatures = () => {
 
 	return (
 		<section className='container mx-auto mt-20 flex w-full grid-cols-1 flex-col items-center p-5 text-white'>
-			<p className='text-center font-cutmark text-lg text-tertiary md:text-2xl'>
+			<p className='w-full text-left font-cutmark text-lg text-tertiary md:text-center md:text-2xl'>
 				User Features
 			</p>
-			<h2 className='text-center font-cutmark text-5xl md:text-7xl'>
+			<h2 className='w-full text-left font-cutmark text-5xl md:text-center md:text-7xl'>
 				Donate For a Cause
 			</h2>
 			<div className='mx-auto mt-8 grid w-full grid-cols-1 place-items-center gap-6 md:grid-cols-3'>
