@@ -79,7 +79,7 @@ const Footer = () => {
 							className='text-xl font-semibold hover:text-gray-500'
 							href='https://github.com/zeeshan8281/Altruize'
 						>
-							Altuize
+							Altruize
 						</a>
 					</div>
 					<p className='text-sm'>
