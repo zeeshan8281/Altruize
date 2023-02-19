@@ -1,5 +1,6 @@
 import PublicLayout from '@/layouts/PublicLayout';
 import React from 'react';
+import Head from 'next/head';
 
 const NewNgoPage = () => {
 	const handleNewNgo = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -8,6 +9,9 @@ const NewNgoPage = () => {
 
 	return (
 		<PublicLayout>
+			<Head>
+				<title>Create NGO Profile | Altruize</title>
+			</Head>
 			<section className='min-h-screen w-full bg-primary'>
 				<div className='mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0'>
 					<div className='w-full rounded-lg  bg-steelGray shadow dark:border dark:border-gray-700 sm:max-w-md md:mt-0 xl:p-0'>

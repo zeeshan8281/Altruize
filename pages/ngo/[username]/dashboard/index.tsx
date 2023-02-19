@@ -10,6 +10,7 @@ import {
 } from 'next';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/firebase.config';
+import Head from 'next/head';
 
 export interface DashBoardTypes {
 	title: string;
@@ -67,6 +68,9 @@ const NgoDashboard: NextPage<
 	];
 	return (
 		<PublicLayout>
+			<Head>
+				<title>{ngo.name} Dashboard | Altruize</title>
+			</Head>
 			<section className='container mx-auto min-h-screen bg-primary pt-[5%]'>
 				<div className='border-b px-[2%] pb-[2%]'>
 					<h1 className='text-left font-cutmark text-5xl font-bold uppercase text-white md:text-center md:text-7xl'>

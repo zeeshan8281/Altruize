@@ -8,12 +8,18 @@ import {
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '@/firebase.config';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const NgoMainPage: NextPage<
 	InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ ngo }) => {
 	return (
 		<PublicLayout>
+			<Head>
+				<title>
+					{ngo?.name} - {ngo?.description} | Altruize
+				</title>
+			</Head>
 			<section className='bg-primary'>
 				<section className='bg-primaryBg body-font text-gray-400'>
 					<div className='container mx-auto flex flex-col px-5 py-24'>

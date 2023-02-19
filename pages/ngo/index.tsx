@@ -1,4 +1,5 @@
 import PublicLayout from '@/layouts/PublicLayout';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -77,6 +78,9 @@ const NgoPage = () => {
 	];
 	return (
 		<PublicLayout>
+			<Head>
+				<title>NGOs | Altruize</title>
+			</Head>
 			<div className='container mx-auto min-h-screen bg-primary pt-[5%]'>
 				<div className='w-full border-b px-[2%] pb-[2%]'>
 					<h1 className='w-ful text-left font-cutmark text-5xl font-bold uppercase text-white md:text-center md:text-7xl'>
