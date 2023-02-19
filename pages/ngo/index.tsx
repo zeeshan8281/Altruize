@@ -2,13 +2,13 @@ import PublicLayout from '@/layouts/PublicLayout';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import {
-	GetServerSideProps,
-	InferGetServerSidePropsType,
-	NextPage,
-} from 'next';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '@/firebase.config';
+// import {
+// 	GetServerSideProps,
+// 	InferGetServerSidePropsType,
+// 	NextPage,
+// } from 'next';
+// import { collection, getDocs, query, where } from 'firebase/firestore';
+// import { db } from '@/firebase.config';
 
 const NgoPage = () => {
 	const ngoDetails = [
@@ -179,7 +179,3 @@ const NgoPage = () => {
 };
 
 export default NgoPage;
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-	//
-};
