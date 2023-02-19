@@ -63,7 +63,6 @@ const NgoPage = () => {
       ngoName: "Agile Paws",
       ngoEmail: "ngo@email.com",
       ngoDonation: "$1,000",
-      ngoDonatePageUrl: "",
     },
   ];
   return (
@@ -126,7 +125,7 @@ const NgoPage = () => {
                             {ngo.ngoDonation}
                           </div>
                         </td>
-                        <td className="whitespace-nowrap p-2 items-center">
+                        <td className="items-center whitespace-nowrap p-2">
                           <button className="group relative inline-block text-lg">
                             <span className="relative z-10 block overflow-hidden rounded-lg border-2 border-gray-900 px-5 py-3 font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out group-hover:text-white">
                               <span className="absolute inset-0 h-full w-full rounded-lg bg-gray-50 px-5 py-3"></span>
