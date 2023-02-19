@@ -2,14 +2,13 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Nunito_Sans } from '@next/font/google';
 import localFont from '@next/font/local';
+import { Provider } from 'react-redux';
+import wrapper from '@/store';
 
-// Rainbow Kit 
+// Rainbow Kit
 import '@rainbow-me/rainbowkit/styles.css';
-import {
-	getDefaultWallets,
-	RainbowKitProvider,
-  } from '@rainbow-me/rainbowkit';
-import { SessionProvider } from "next-auth/react";
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { SessionProvider } from 'next-auth/react';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
@@ -20,16 +19,16 @@ const { chains, webSocketProvider, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-	appName: "Altruize",
+	appName: 'Altruize',
 	chains,
-}); 
+});
 
 const wagmiClient = createClient({
 	autoConnect: true,
 	webSocketProvider,
 	connectors,
-	provider
-})
+	provider,
+});
 
 const nunitoSans = Nunito_Sans({
 	subsets: ['latin'],
@@ -84,16 +83,25 @@ const cutmark = localFont({
 	variable: '--font-cutmark',
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, ...rest }: AppProps) {
+	const { store, props } = wrapper.useWrappedStore(rest);
+	const { pageProps } = props;
 	return (
-		<WagmiConfig client={wagmiClient}>
-			<SessionProvider session={pageProps.session} refetchInterval={0}>
-				<RainbowKitProvider chains={chains}>
-					<main className={`${nunitoSans.variable} ${cutmark.variable}`}>
-						<Component {...pageProps} />
-					</main>
-				</RainbowKitProvider>
-			</SessionProvider>
-		</WagmiConfig>
+		<Provider store={store}>
+			<WagmiConfig client={wagmiClient}>
+				<SessionProvider
+					session={pageProps.session}
+					refetchInterval={0}
+				>
+					<RainbowKitProvider chains={chains}>
+						<main
+							className={`${nunitoSans.variable} ${cutmark.variable}`}
+						>
+							<Component {...pageProps} />
+						</main>
+					</RainbowKitProvider>
+				</SessionProvider>
+			</WagmiConfig>
+		</Provider>
 	);
 }
