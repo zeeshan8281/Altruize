@@ -22,19 +22,52 @@ const NgoDashboard = () => {
       Icon: AiOutlinePlus,
     },
   ];
+
+  const transactionDetails = [
+    {
+      walletAddress: "1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir",
+      userName: "zeus",
+      amtDonated: "0.12 ETH",
+      date: "19-02-2023",
+    },
+    {
+      walletAddress: "1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir",
+      userName: "zeus",
+      amtDonated: "0.12 ETH",
+      date: "19-02-2023",
+    },
+    {
+      walletAddress: "1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir",
+      userName: "zeus",
+      amtDonated: "0.12 ETH",
+      date: "19-02-2023",
+    },
+    {
+      walletAddress: "1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir",
+      userName: "zeus",
+      amtDonated: "0.12 ETH",
+      date: "19-02-2023",
+    },
+    {
+      walletAddress: "1Gx9FCknxSsLfFDzFdn75Xgqx95sDp38ir",
+      userName: "zeus",
+      amtDonated: "0.12 ETH",
+      date: "19-02-2023",
+    },
+  ];
   return (
     <div className="mx-auto min-h-screen  bg-primary pt-[5%]">
       <div className="flex flex-col items-center justify-between border-b px-[2%] pb-[2%] md:flex-row">
         <h1 className="font-cutmark text-5xl font-bold uppercase text-white md:text-7xl">
-          User Details
+          NGO Dashboard
         </h1>
       </div>
       {/* dashboard section  */}
-      <div className="mx-4 mb-4 mt-10 grid max-w-[1200px] rounded-3xl border-2 border-black bg-steelGray px-8 pb-10">
+      <div className="mx-4 mb-6 mt-10 grid max-w-[1200px] rounded-3xl border-2 border-black bg-steelGray px-8 pb-10">
         <div className="grid grid-cols-12 gap-6">
           <div className="xxl:col-span-9 col-span-12 grid grid-cols-12 gap-6">
-            <div className="col-span-12 mt-8">
-              <div className="mt-5 grid grid-cols-12 gap-6">
+            <div className="col-span-12 mx-auto mt-8 w-fit">
+              <div className="mx-auto mt-5 grid w-fit grid-cols-12 items-center gap-6">
                 {dashboardDetails.map((detail) => (
                   <a
                     className="intro-y  col-span-12 transform rounded-lg bg-blue-500 shadow-xl transition duration-300 hover:scale-105 sm:col-span-6 xl:col-span-3"
@@ -63,58 +96,40 @@ const NgoDashboard = () => {
 
             {/* table  */}
 
-            <div className="relative">
+            <div className="relative ">
               <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
                 <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-3">
-                      Product name
+                      Sender Name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Color
+                      Wallet Address
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Category
+                      Date
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      Price
+                      Amount
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                    >
-                      Apple MacBook Pro 17"
-                    </th>
-                    <td className="px-6 py-4">Silver</td>
-                    <td className="px-6 py-4">Laptop</td>
-                    <td className="px-6 py-4">$2999</td>
-                  </tr>
-                  <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                    >
-                      Microsoft Surface Pro
-                    </th>
-                    <td className="px-6 py-4">White</td>
-                    <td className="px-6 py-4">Laptop PC</td>
-                    <td className="px-6 py-4">$1999</td>
-                  </tr>
-                  <tr className="bg-white dark:bg-gray-800">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                    >
-                      Magic Mouse 2
-                    </th>
-                    <td className="px-6 py-4">Black</td>
-                    <td className="px-6 py-4">Accessories</td>
-                    <td className="px-6 py-4">$99</td>
-                  </tr>
+                  {transactionDetails.map((tranc) => (
+                    <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                      >
+                        {tranc.userName}
+                      </th>
+                      <td className="px-6 py-4">{tranc.walletAddress}</td>
+                      <td className="px-6 py-4">{tranc.date}</td>
+                      <td className="px-6 py-4 text-green-400">
+                        {tranc.amtDonated}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
